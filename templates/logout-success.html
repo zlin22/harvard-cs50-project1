@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Logout Success
+{% endblock %}
+
+{% block body %}
+    <p>
+        You've logged out successfully
+    </p>
+
+    <a href="{{ url_for('index') }}">Go back</a>
+{% endblock %}

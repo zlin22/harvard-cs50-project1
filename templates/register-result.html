@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Register
+{% endblock %}
+
+{% block body %}
+
+    {% if resultMessage == "success" %}
+
+      <h3>Success! Your account has been created - your username is {{username}}!</h3>
+      <p><a href="{{ url_for('index') }}">Go home</a> and sign in</p>
+
+    {% else %}
+
+      <h3>{{errorMessage}}</h3>
+      <p><a href="{{ url_for('register') }}">Go back</a> and register again</p>
+
+    {% endif %}
+
+{% endblock %}

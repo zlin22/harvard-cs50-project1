@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Search
+{% endblock %}
+
+{% block body %}
+
+    <form action="{{ url_for('search') }}" method="post">
+        <label for="searchText">Search for ISBN, Author, or Title</label>
+        <p></p>
+        <input type="text" name="searchText" placeholder="Enter text here">
+        <button>Search</button>
+    </form>
+
+    <p></p>
+
+    <h2>Matching results</h2>
+    <ul>
+        {% for book in books %}
+            <li><a href="{{ url_for('bookDetails', isbn=book.isbn) }}">ISBN: {{book.isbn}}, Title: {{ book.title }}, Author: {{book.author}}, Year: {{book.year}}</a></li>
+        {% else %}
+            <li>No results</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ url_for('logout') }}" method="post">
+        <button>Log Out</button>
+    </form>
+{% endblock %}

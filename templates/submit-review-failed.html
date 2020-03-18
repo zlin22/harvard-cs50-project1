@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Review Failed
+{% endblock %}
+
+{% block body %}
+    <p>
+      Please enter a rating from 1 to 5 for the book.
+    </p>
+
+    <p><a href="{{ url_for('bookDetails', isbn=isbn) }}">Go back to book</a></p>
+{% endblock %}

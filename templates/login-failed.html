@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login failed
+{% endblock %}
+
+{% block body %}
+    <p>
+        Incorrect username or password
+    </p>
+
+    <a href="{{ url_for('index') }}">Go back</a>
+{% endblock %}
