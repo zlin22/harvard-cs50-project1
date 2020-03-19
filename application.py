@@ -109,7 +109,7 @@ def submitReview(isbn):
     username = session["user_id"]
 
     if len(rating) == 0 or int(rating) < 1 or int(rating) > 5:
-        return render_template("submit-review-failed.html", isbn=isbn)
+        return render_template("submit-review-fail.html", isbn=isbn)
 
     else:
         db.execute("DELETE FROM reviews WHERE book_isbn = :book_isbn AND username = :username", {"book_isbn": book_isbn, "username": username})
@@ -117,7 +117,7 @@ def submitReview(isbn):
         db.execute("INSERT INTO reviews (rating, comment, book_isbn, username) VALUES (:rating, :comment, :book_isbn, :username)", {"rating": rating, "comment": comment, "book_isbn": book_isbn, "username": username})
         db.commit()
 
-        return render_template("submit-review.html", isbn=isbn)
+        return render_template("submit-review-success.html", isbn=isbn)
 
 @app.route("/api/<string:isbn>")
 def bookAPI(isbn):

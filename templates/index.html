@@ -19,15 +19,9 @@
 
     {% else %}
 
-      <p>Welcome {{username}}!</p>
-      <form action="{{ url_for('index') }}" method="post">
-          <input type="text" name="note" placeholder="Enter Note Here">
-          <button>Add Note</button>
-      </form>
+      <p>Welcome {{username}}! You are logged in.</p>
 
-      <form action="{{ url_for('logout') }}" method="post">
-          <button>Log Out</button>
-      </form>
+      <a href="{{ url_for('search') }}">Go to search</a>
 
     {% endif %}
 
